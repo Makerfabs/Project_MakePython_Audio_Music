@@ -23,9 +23,10 @@ from machine import Pin
 from machine import SPI
 import uos
 
-def music():
+def music(Pin_play,wav_name):
   #======= USER CONFIGURATION =======
-  WAV_FILE = 'iveryhappy44100Hz.wav'
+  #WAV_FILE = 'iveryhappy44100Hz.wav'
+  WAV_FILE = wav_name
   SAMPLE_RATE_IN_HZ = 44100
   #======= USER CONFIGURATION =======
   
@@ -45,16 +46,6 @@ def music():
       samplerate=SAMPLE_RATE_IN_HZ,
       dmacount=10, dmalen=512)
   
-  # configure SD card
-  spi = SPI(2, baudrate = 10000000, polarity = 0, phase = 0, bits = 8, firstbit = SPI.MSB,
-            sck = Pin(18, Pin.OUT, Pin.PULL_DOWN),
-            mosi = Pin(23, Pin.OUT, Pin.PULL_UP),
-            miso = Pin(19, Pin.IN, Pin.PULL_UP))
-  
-  
-  spi.init()  # Ensure right baudrate
-  sd = sdcard.SDCard(spi, Pin(22))  # Compatible with PCB
-  uos.mount(sd, "/sd")
   wav_file = '/sd/{}'.format(WAV_FILE)
   wav = open(wav_file,'rb')
   
@@ -89,15 +80,20 @@ def music():
               # loop until all samples are written to the I2S peripheral
               while num_written < num_read:
                   num_written += audio_out.write(wav_samples_mv[num_written:num_read], timeout=0)
+                  if Pin_play.value() == 0:
+                      wav.close()
+                      audio_out.deinit()
+                      print('Hand Out')
+                      return
       except (KeyboardInterrupt, Exception) as e:
           print('caught exception {} {}'.format(type(e).__name__, e))
           break
       
   wav.close()
-  uos.umount("/sd")
-  sd.deinit()
   audio_out.deinit()
-  print('Done')
+  print('Auto Out')
+  return
+
 
 
 
