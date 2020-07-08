@@ -75,12 +75,30 @@ void loop()
   String wav_name = music_list[music_index];
   File file = SD.open(wav_name); // 44100Hz, 16bit, linear PCM
 
+  file.seek(22);
+  int ch = 2;
+  long int music_time = file.size() / 160000;
+
   Serial.print(wav_name + "  ");
   Serial.println("OPEN FILE");
-  mydisplay(music_index);
 
-  file.seek(22);
-  int ch = file.read();
+  display.clearDisplay();
+
+  display.setTextSize(1);              // Normal 1:1 pixel scale
+  display.setTextColor(SSD1306_WHITE); // Draw white text
+  display.setCursor(0, 0);             // Start at top-left corner
+  display.println(wav_name);
+  display.setCursor(0, 12);
+  display.println("44100Hz");
+  display.setCursor(0, 24);
+  display.print(ch);
+  display.println(" Channel");
+  display.setCursor(0, 36);
+  display.print(music_time);
+  display.println(" seconds");
+  display.display();
+  delay(2000);
+
   file.seek(offset);
 
   I2S_Init();
@@ -185,6 +203,10 @@ void mydisplay(int wav_index)
   display.setTextColor(SSD1306_WHITE); // Draw white text
   display.setCursor(0, 0);             // Start at top-left corner
   display.println(music_list[wav_index]);
+  display.setCursor(0, 12);
+  display.println("44100Hz");
+  display.setCursor(0, 24);
+  display.println("2 Channel");
   display.display();
   delay(2000);
 }
@@ -196,7 +218,11 @@ void logoshow(void)
   display.setTextSize(2);              // Normal 1:1 pixel scale
   display.setTextColor(SSD1306_WHITE); // Draw white text
   display.setCursor(0, 0);             // Start at top-left corner
-  display.println(F("Makerfabs"));
+  display.println(F("MakePython"));
+  display.setCursor(0, 20); // Start at top-left corner
+  display.println(F("Audio"));
+  display.setCursor(0, 40); // Start at top-left corner
+  display.println(F("WAVPLAYER"));
   display.display();
   delay(2000);
 }
