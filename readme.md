@@ -9,7 +9,7 @@ Note:
 */
 ```
 
-![main](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/main.jpg)
+![main](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/main.JPG)
 
 [toc]
 
@@ -81,7 +81,7 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 - Plug the stereo or earphone into a 3.5mm audio jack.
 
 
-![3.5mm](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/3.5mm.jpg)
+![3.5mm](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/3.5mm.JPG)
 
   
 
@@ -89,7 +89,7 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 
 - Power the ESP32 via Micro USB and the LCD screen displays the basic information of the song.
 
-![image-20200708134131231](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/music_info.jpg)
+![image-20200708134131231](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/music_info.JPG)
 
 - Use the switch on the left to control the music.Flip up and switch to the previous song.Scroll down and switch to the next song.Press inward to pause/continue the play.
 
