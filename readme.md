@@ -9,7 +9,7 @@ Note:
 */
 ```
 
-![main](md_pic/main.jpg)
+![main](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/main.jpg)
 
 [toc]
 
@@ -23,13 +23,14 @@ Note:
 
 MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows you to play waV songs stored on an SD card without decoding.The SSD1306 screen displays basic information about the song, and the scroll wheel switch on Audio allows you to switch and pause the music.
 
-![oversee](/md_pic/oversee.png)
+![oversee](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/oversee.png)
 
 ## Equipment list
 
 - [MakePython ESP32](https://www.makerfabs.com/wiki/index.php?title=MakePython_ESP32)
 - [MakaPython Audio](https://www.makerfabs.com/wiki/index.php?title=MakaPython_Audio)
 - Audio/headphones with 3.5mm audio connector
+- Micro SD card
 
 
 
@@ -42,7 +43,7 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 - Search esp32.
 - Install esp32 by Espressif Systems.
 
-![image-20200708115047882](md_pic/image-20200708115047882.png)
+![image-20200708115047882](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/image-20200708115047882.png)
 
 ## Install libraries
 
@@ -56,7 +57,7 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 
 
 
-![image-20200708115545998](md_pic/image-20200708115545998.png)
+![image-20200708115545998](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/image-20200708115545998.png)
 
 ## Burn ESP32
 
@@ -64,7 +65,7 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 
 - Select Toos/board/Esp32 Dev Modue.
 
-![image-20200708120243416](md_pic/image-20200708120243416.png)
+![image-20200708120243416](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/image-20200708120243416.png)
 
 - Connect ESP32 to your PC via Micro USB .
 
@@ -75,13 +76,12 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 ## Prepare Music
 
 - Add some wav music in sdcard.Of course ,name must be English.
-
 - This example program can decode only 44.1khz, 16bit, stereo WAV files.This is a common file format for songs on the Internet.But the I2S chip itself supports waV in all common formats, such as sampling rate of 22.05khz, 16kHz, 24bit, 16bit, mono channel, etc.If you want to play music in his format, please modify the code yourself.
-
+- Insert a Micro SD card into MakePython Audio.
 - Plug the stereo or earphone into a 3.5mm audio jack.
 
 
-![3.5mm](md_pic/3.5mm.jpg)
+![3.5mm](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/3.5mm.jpg)
 
   
 
@@ -89,11 +89,11 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 
 - Power the ESP32 via Micro USB and the LCD screen displays the basic information of the song.
 
-![image-20200708134131231](md_pic/music_info.jpg)
+![image-20200708134131231](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/music_info.jpg)
 
 - Use the switch on the left to control the music.Flip up and switch to the previous song.Scroll down and switch to the next song.Press inward to pause/continue the play.
 
-![image-20200708134131231](md_pic/image-20200708134131231.png)
+![image-20200708134131231](https://github.com/Makerfabs/Project_MakePython_Audio_Music/blob/master/md_pic/image-20200708134131231.png)
 
 # Arduino Code Explain
 
