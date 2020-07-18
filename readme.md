@@ -14,7 +14,8 @@ Note:
 */
 ```
 
-![main](md_pic/main.jpg)
+[YOUTUBE:MakePython Audio Music Play](https://www.youtube.com/watch?v=0urJ_uxfW0k&feature=youtu.be)
+![main](md_pic/main.JPG)
 
 [toc]
 
@@ -27,6 +28,8 @@ Note:
 [Makerfabs Wiki](https://makerfabs.com/wiki/index.php?title=Main_Page)
 
 MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows you to play waV songs stored on an SD card without decoding.The SSD1306 screen displays basic information about the song, and the scroll wheel switch on Audio allows you to switch and pause the music.
+
+
 
 ![oversee](md_pic/oversee.png)
 
@@ -87,8 +90,7 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 - Insert a Micro SD card into MakePython Audio.
 - Plug the stereo or earphone into a 3.5mm audio jack.
 
-
-![3.5mm](md_pic/3.5mm.jpg)
+![3.5mm](md_pic/3.5mm.JPG)
 
   
 
@@ -96,7 +98,7 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 
 - Power the ESP32 via Micro USB and the LCD screen displays the basic information of the song.
 
-![image-20200708134131231](md_pic/music_info.jpg)
+![image-20200708134131231](md_pic/music_info.JPG)
 
 - Use the switch on the left to control the music.Flip up and switch to the previous song.Scroll down and switch to the next song.Press inward to pause/continue the play.
 
