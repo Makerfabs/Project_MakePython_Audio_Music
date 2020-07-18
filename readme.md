@@ -81,7 +81,7 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 - **ATTENTION !!! Plug ESP32 and Audio expansion boards together after burning. Be sure to plug them together after burning or the firmware will not burn.** 
 - **V1.1 Add:**	MicroPython Audio can be downloaded without unplugging. When uploading the program, please rotate the switch next to the 3.5mm Audio interface to the Audio socket.
 
-![Without_plug](md_pic\Without_plug.png)
+![Without_plug](md_pic/Without_plug.png)
 
 ## Prepare Music
 
