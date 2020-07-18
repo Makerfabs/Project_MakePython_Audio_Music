@@ -66,7 +66,7 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 
 ## Burn ESP32
 
-- Open file "/esp32_mp3/esp32_mp3.ino"
+- Open file "/esp32_wav_player/esp32_wav_player.ino"
 
 - Select Toos/board/Esp32 Dev Modue.
 
@@ -83,7 +83,7 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 ## Prepare Music
 
 - Add some wav music in sdcard.Of course ,name must be English.
-- This example program can decode only 44.1khz, 16bit, stereo WAV files.This is a common file format for songs on the Internet.But the I2S chip itself supports waV in all common formats, such as sampling rate of 22.05khz, 16kHz, 24bit, 16bit, mono channel, etc.If you want to play music in his format, please modify the code yourself.
+- This example program can decode only 44.1khz, 16bit, stereo WAV files.This is a common file format for songs on the Internet.But the I2S chip itself supports waV in all common formats, such as sampling rate of 22.05khz, 16kHz, 24bit, 16bit, mono channel, etc.If you want to play music in other format, please modify the code yourself.
 - Insert a Micro SD card into MakePython Audio.
 - Plug the stereo or earphone into a 3.5mm audio jack.
 
@@ -154,7 +154,7 @@ UDA1334ATS on Makepython Audio does not support MP3 hardware decoding. Here is a
 
 Lib from github：[schreibfaul1/ESP32-audioI2S](https://github.com/schreibfaul1/ESP32-audioI2S/)
 
-You can download the library folder "C:\Users\ YourName \Documents\Arduino\ Libraries" installed into the Arduino compiler.Or There is also a copy in the folder "\Project_MakePython_Audio_Music\esp32_mp3\".
+You can download the library folder "C:\Users\ YourName\Documents\Arduino\ Libraries" installed into the Arduino compiler.Or There is also a copy in the folder "\Project_MakePython_Audio_Music\esp32_mp3\".
 
 ## Run Example
 
