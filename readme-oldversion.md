@@ -6,10 +6,6 @@ Version:		V1.1
 Author:			Vincent
 Create Date:	2020/7/8
 Note:
-	2020/7/29	V2.0:
-	1,The new version supports all the functions of MP3: song switching, volume adjustment, pause and mute.Support mp3, WAV, ACC common formats.
-	2,3D printing shells designed for MakePython ESP32 and MakePython Audio are provided.
-	3,The code was completely refacted, and the files of V1.1 were placed in the old-SRc folder. The previous README was renamed to Readme-OldVersion.
 	2020/7/18	V1.1: 
 	1,Move the original WavPlayer to "\Project_MakePython_Audio_Music\ ESP32_wav_player"
 	2,"\Project_MakePython_Audio_Music\ ESP32_MP3" folder for Mp3 decoding instance and volume control instance.
