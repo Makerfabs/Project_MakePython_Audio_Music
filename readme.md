@@ -1,4 +1,4 @@
-# MicroPython Audio WavPlayer
+# MicroPython Audio MusicPlayer
 
 ```c++
 /*
@@ -31,11 +31,11 @@ Note:
 
 [Makerfabs Wiki](https://makerfabs.com/wiki/index.php?title=Main_Page)
 
-MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows you to play waV songs stored on an SD card without decoding.The SSD1306 screen displays basic information about the song, and the scroll wheel switch on Audio allows you to switch and pause the music.
+MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows you to play songs stored on an SD card .The SSD1306 screen displays basic information about the song, and the scroll wheel switch on Audio allows you to switch and pause the music.
 
 
 
-![oversee](md_pic/oversee.png)
+![oversee](md_pic/oversee2.png)
 
 ## Equipment list
 
@@ -48,49 +48,26 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 
 # STEPS
 
-## Install ESP32 board
+## Prepare And Burn
 
-- Open arduino ide.
-- Select Tools/Board/BoardsManager.
-- Search esp32.
-- Install esp32 by Espressif Systems.
+**If you have any questions，such as how to install the development board, how to download the code, how to install the library. Please refer to :[Makerfabs_FAQ](https://github.com/Makerfabs/Makerfabs_FAQ)**
 
-![image-20200708115047882](md_pic/image-20200708115047882.png)
+- Install board : esp32 .
 
-## Install libraries
+- Install library : Adafruit SSD1306 and dependent libraries.
+- Install zip library : [ESP32-audioI2S](https://github.com/schreibfaul1/ESP32-audioI2S)("Audio.h")
 
-- Open arduino ide.
-- Select Tools/Manage Libraries.
-- Search ssd1306.
-
-- Install Adafruit SSD1306 by Adafruit.
-
-- If youer ardino ide version is old,maybe can't auto install dependent libraries, likes Adafruit_GFX.You may manual install or upgrade arduino ide, such as 1.8.13.
+- Upload file "/Project_MakePython_Audio_Music/music_player.ino"
 
 
-
-![image-20200708115545998](md_pic/image-20200708115545998.png)
-
-## Burn ESP32
-
-- Open file "/esp32_wav_player/esp32_wav_player.ino"
-
-- Select Toos/board/Esp32 Dev Modue.
-
-![image-20200708120243416](md_pic/image-20200708120243416.png)
-
-- Connect ESP32 to your PC via Micro USB .
-- Select Port.
-- And at last ,push upload.
-- **ATTENTION !!! Plug ESP32 and Audio expansion boards together after burning. Be sure to plug them together after burning or the firmware will not burn.** 
-- **V1.1 Add:**	MicroPython Audio can be downloaded without unplugging. When uploading the program, please rotate the switch next to the 3.5mm Audio interface to the Audio socket.
+- **~~ATTENTION !!! Plug ESP32 and Audio expansion boards together after burning. Be sure to plug them together after burning or the firmware will not burn.~~** 
+- **V1.1 Add:	MicroPython Audio can be downloaded without unplugging. When uploading the program, please rotate the switch next to the 3.5mm Audio interface to the Audio socket.**
 
 ![Without_plug](md_pic/Without_plug.png)
 
 ## Prepare Music
 
-- Add some wav music in sdcard.Of course ,name must be English.
-- This example program can decode only 44.1khz, 16bit, stereo WAV files.This is a common file format for songs on the Internet.But the I2S chip itself supports waV in all common formats, such as sampling rate of 22.05khz, 16kHz, 24bit, 16bit, mono channel, etc.If you want to play music in other format, please modify the code yourself.
+- Add some music(.mp3 or .wav) in sdcard.Of course ,name must be English.
 - Insert a Micro SD card into MakePython Audio.
 - Plug the stereo or earphone into a 3.5mm audio jack.
 
@@ -98,59 +75,20 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 
   
 
-## How to use WavPlayer
+## How to use MusicPlayer
 
 - Power the ESP32 via Micro USB and the LCD screen displays the basic information of the song.
+- Such as :The name of the song, the time played, the length of the song.
 
 ![image-20200708134131231](md_pic/music_info.JPG)
 
-- Use the switch on the left to control the music.Flip up and switch to the previous song.Scroll down and switch to the next song.Press inward to pause/continue the play.
+- Lower side switch, left and right for next song, Previous.Press inward to pause.
+- The switch on the left, volume up and down.Press in to mute.
 
-![image-20200708134131231](md_pic/image-20200708134131231.png)
+![image-20200708134131231](md_pic/button_control.png)
 
-# Arduino Code Explain
 
-```c++
- Wire.begin(MAKEPYTHON_ESP32_SDA, MAKEPYTHON_ESP32_SCL);
-  // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
-  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C))
-  { // Address 0x3C for 128x32
-    Serial.println(F("SSD1306 allocation failed"));
-    for (;;)
-      ; // Don't proceed, loop forever
-  }
-```
-
-- Set the I2C pin of MakePython ESP32 to drive the LCD.
-
-```c++
-SPI.begin(18, 19, 23, 5);
-  if (!SD.begin(22, SPI))
-  {
-    Serial.println("Card Mount Failed");
-    return;
-  }
-```
-
-- Set the SPI pin of MakePython ESP32 to drive the SD card module.
-```c++
-music_num = get_wav_list(SD, "/", 0, music_list);
-```
-- Gets a list of WAV files in the SD card.
-
-```c++
-music_num = get_wav_list(SD, "/", 0, music_list);
-```
-- Send audio signals like DAC chips through I2S interface.
-
-```c++
-while (file.readBytes(data, sizeof(data)))
-{
-    I2S_Write(data, sizeof(data));
-}
-```
-
-# MP3 Decoder
+# Esp32-AudioI2S Lib
 
 ## Introduce
 
@@ -183,7 +121,15 @@ You can download the library folder "C:\Users\ YourName\Documents\Arduino\ Libra
 
 
 
-# Other Files
+# 3D Printer Box
 
-- Folder："/esp32_sdteset"，"/esp32_ssd1306test"，"/esp32_i2stest".They're all testing demos.
-- Code in "/workSpace" is a python demo.But playing 44.1khz, 16bit, stereo WAV has noise, the rest of the format can play, you can try.
+We designed a simple 3D-printed case. Don't need support.
+
+![3d1](md_pic/3d1.png)
+
+![3d1](md_pic/3d2.png)
+
+# Old Files
+
+- Because the project use a new audio library, the previous code is no longer applicable.
+- All the previous code is in the old-src folder, please refer to readme-oldversion.
