@@ -2,7 +2,7 @@
 
 ```c++
 /*
-Version:		V1.1
+Version:		V2.0
 Author:			Vincent
 Create Date:	2020/7/8
 Note:
