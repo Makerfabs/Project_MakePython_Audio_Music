@@ -254,7 +254,13 @@ void display_music()
 
     display.setCursor(0, line); // Start at top-left corner
     display.println(music_info.name);
-    line += line_step * 2;
+    line += line_step;
+
+    display.setCursor(0, line);
+    display.println(buff);
+    line += line_step;
+
+    sprintf(buff, "V:%d",music_info.volume);
 
     display.setCursor(0, line);
     display.println(buff);
