@@ -6,6 +6,8 @@ Version:		V2.0
 Author:			Vincent
 Create Date:	2020/7/8
 Note:
+	2020/9/11	V2.1:
+	1,Add a bluetooth stero demo.
 	2020/7/29	V2.0:
 	1,The new version supports all the functions of MP3: song switching, volume adjustment, pause and mute.Support mp3, WAV, ACC common formats.
 	2,3D printing shells designed for MakePython ESP32 and MakePython Audio are provided.
@@ -134,3 +136,13 @@ We designed a simple 3D-printed case. Don't need support.
 
 - Because the project use a new audio library, the previous code is no longer applicable.
 - All the previous code is in the old-src folder, please refer to readme-oldversion.
+
+
+
+# Blue Tooth Stereo
+
+- Install "btAudio" lib from  [tierneytim/btAudio](https://github.com/tierneytim/btAudio)
+
+- Upload "/Project_MakePython_Audio_Music/bluetooth_stereo/bluetooth_stereo.ino".
+- Opend your phone and select Bluetooth device "ESP_Speaker"
+- Use just like a usual Bluetooth Stereo.
