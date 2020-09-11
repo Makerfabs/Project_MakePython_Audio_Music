@@ -2,9 +2,10 @@
 
 ```c++
 /*
-Version:		V2.0
+Version:		V2.1
 Author:			Vincent
 Create Date:	2020/7/8
+Update Date:	2020/9/11
 Note:
 	2020/9/11	V2.1:
 	1,Add a bluetooth stero demo.
