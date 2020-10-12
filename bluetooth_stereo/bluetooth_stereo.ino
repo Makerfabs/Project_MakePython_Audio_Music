@@ -25,16 +25,23 @@ const int Pin_pause = 33;
 const int Pin_next = 2;
 
 //WIFI
-const char *ssid = "YOUR WIFI";
-const char *password = "password";
+const char *ssid = "Tenda_195";
+const char *password = "xbw941024";
 
 //NTP time
 //const char* ntpServer = "pool.ntp.org";
 const char *ntpServer = "120.25.108.11";
 const long gmtOffset_sec = 8 * 60 * 60; //China+8
 const int daylightOffset_sec = 0;
-String clock_time = "07:30:0";
-String clock_time2 = "07:40:0";
+
+/*
+String clock_time = "20:14:0";
+String clock_time2 = "20:16:0";
+*/
+
+String clock_time = "07:45:0";
+String clock_time2 = "08:00:0";
+
 
 struct tm timeinfo;
 
@@ -101,6 +108,7 @@ void setup()
 }
 
 unsigned long button_time = 0;
+unsigned long run_time = 0;
 uint alarm_flag = 0;
 int16_t fy[2] = {10000, 60000};
 size_t i2s_bytes_write = 0;
@@ -114,6 +122,7 @@ void loop()
         {
             if (showtime() != 0)
             {
+                run_time = millis();
                 alarm_flag = 1;
                 display.setCursor(0, 24); // Start at top-left corner
                 display.println("ALARM!!!!!");
@@ -123,6 +132,7 @@ void loop()
             }
         }
     }
+    
     while (alarm_flag)
     {
         for (int i = 0; i < 100; i++)
@@ -139,6 +149,16 @@ void loop()
             alarm_flag = 0;
             button_time = millis();
         }
+        if((millis() - run_time) > 60000)
+        {
+          Serial.println("Alarm over");
+          alarm_flag = 0;
+        }
+    }
+
+    if (digitalRead(Pin_pause) == 0)
+    {
+        showalarm();
     }
 }
 
@@ -165,6 +185,17 @@ void lcd_text(String text)
     display.println(text);
     display.display();
     delay(500);
+}
+
+void showalarm()
+{
+    display.clearDisplay();
+    display.setTextSize(3);  
+    display.setCursor(0, 0); // Start at top-left corner
+    display.println(clock_time); 
+    display.println(clock_time2); 
+    display.display();
+    delay(5000);
 }
 
 int showtime()
@@ -197,6 +228,12 @@ void printLocalTime()
     if (!getLocalTime(&timeinfo))
     {
         Serial.println("Failed to obtain time");
+        display.clearDisplay();
+        display.setTextSize(4);  
+        display.setCursor(0, 0); // Start at top-left corner
+        display.println("PLEASE RESTART");
+        display.display();
+        while(1);
         return;
     }
     Serial.println(&timeinfo, "%A, %B %d %Y %H:%M:%S");
