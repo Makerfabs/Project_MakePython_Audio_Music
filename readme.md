@@ -33,7 +33,7 @@ Note:
 
 [Makerfabs home page](https://www.makerfabs.com/)
 
-[Makerfabs Wiki](https://makerfabs.com/wiki/index.php?title=Main_Page)
+[Makerfabs Wiki](https://wiki.makerfabs.com/)
 
 MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows you to play songs stored on an SD card .The SSD1306 screen displays basic information about the song, and the scroll wheel switch on Audio allows you to switch and pause the music.
 
@@ -43,8 +43,8 @@ MakePython Audio inherited the DAC chip and SD card module.The I2S chip allows y
 
 ## Equipment list
 
-- [MakePython ESP32](https://www.makerfabs.com/wiki/index.php?title=MakePython_ESP32)
-- [MakaPython Audio](https://www.makerfabs.com/wiki/index.php?title=MakaPython_Audio)
+- [MakePython ESP32](https://wiki.makerfabs.com/MaESP_ESP32.html)
+- [MakaPython Audio](https://wiki.makerfabs.com/MaESP_Audio.html)
 - Audio/headphones with 3.5mm audio connector
 - Micro SD card
 
